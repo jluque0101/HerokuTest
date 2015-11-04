@@ -9,9 +9,13 @@ var porra = require("./Porra.js");
 var porras = new Object;
 
 // Establece el IP y el puerto dependiendo del PaaS que sea
-var server_ip_address = process.env.OPENSHIFT_NODEJS_IP || '0.0.0.0';
-app.set('port', (process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 5000));
+
+app.set('port', (process.env.PORT || 5000));
 app.use(express.static(__dirname + '/public'));
+
+//var server_ip_address = process.env.OPENSHIFT_NODEJS_IP || '0.0.0.0';
+//app.set('port', (process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 5000));
+//app.use(express.static(__dirname + '/public'));
 
 // Crea una porra
 app.put('/porra/:competition/:year/:local/:visitante', function( req, response ) {
@@ -84,8 +88,8 @@ app.get('/porra/ganador/:competition/:year/:local/:visitante/', function( req, r
 });
 
 // Escucha en un puerto determinado.
-app.listen(app.get('port'), server_ip_address, function() {
-  console.log("Node app is running at " + server_ip_address + ":" + app.get('port'));
+app.listen(app.get('port'), function() {
+  console.log("Node app is running at " + app.get('port'));
 });
 
 // Exporta la variable para poder hacer tests

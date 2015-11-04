@@ -2,3 +2,5 @@ node_modules
 .env
 Dockerfile
 docker-compose.yml
+bin/npm-debug.log
+npm-debug.log

@@ -1,5 +1,5 @@
 var request = require('supertest'),
-app = require('../index.js');
+app = require('../routes/index.js');
 
 describe( "PUT porra", function() {
 	it('should create', function (done) {
